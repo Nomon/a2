@@ -1,0 +1,13 @@
+{
+    "name": "application-name"
+  , "version": "0.0.1"
+  , "private": true
+  , "devDependencies": {
+    "mocha":"1.0.1"
+  , "should":"0.6."
+  }
+  , "dependencies": {
+      "express": "2.5.5"
+    , "ejs": ">= 0.0.1"
+  }
+}

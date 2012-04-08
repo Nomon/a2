@@ -1,0 +1,4 @@
+--growl
+--require assert
+--require should
+--reporter spec
