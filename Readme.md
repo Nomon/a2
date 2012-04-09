@@ -2,6 +2,32 @@
 
 draft-25 confirming oauth2 server suite with browser js client for implicit flow in browsers.
 
+# Server usage
+```
+var server new a2.Server({sign_secret:"token signing secret",crypt_secret:"encryption key used"});
+var authentication = new oauth2.Authentication(server);
+var authorization = new oauth2.Authentication(server);
+
+server.on('login_form', function(req, res) {
+  res.render('login');
+});
+
+server.on('authorize_form', function() {
+  res.render('authorize',{state:req.a2.state,scope:req.a2.scope,redirect_uri:req.a2.redirect_uri});
+});
+```
+
+# Client usage
+```
+<script src="/a2/a2.connect.js"></script>
+<script>
+  var client = a2.initialize({client_id:1,scope:"user"});
+  client.connect(function(token) {
+    console.log("Got access_token ",token);
+  });
+</script>
+```
+
 ## License
 
 (The MIT License)
