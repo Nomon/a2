@@ -3,7 +3,8 @@ REPORTER = spec
 test:
 	@./node_modules/.bin/mocha \
 	  --reporter $(REPORTER) \
-	  --require assert
+	  --require assert \
+	  --require test/common.js
 
 
 test-cov: lib-cov
