@@ -1,7 +1,6 @@
 {
-    "name": "application-name"
+    "name": "oauth2-server"
   , "version": "0.0.1"
-  , "private": true
   , "devDependencies": {
     "mocha":"1.0.1"
   , "should":"0.6."
@@ -12,4 +11,6 @@
   , "dependencies": {
     "serializer" : "0.0.3"
   }
+  , "keywords": [ "authentication", "authorization", "oauth2", "oauth" ]
+  , "scripts": { "test": "make test"}
 }
