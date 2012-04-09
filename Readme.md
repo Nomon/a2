@@ -1,5 +1,6 @@
-## OAuth2 authorization server
+## a2 OAuth2 suite
 
+draft-25 confirming oauth2 server suite with browser js client for implicit flow in browsers.
 
 ## License
 

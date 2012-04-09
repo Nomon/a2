@@ -1,4 +1,3 @@
-
 suite('OAUTH2 Server query parameter verifier', function() {
   test('only code and token response_type allowed', function() {
     assert(oauth2.verify.responseType("code"));
