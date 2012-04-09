@@ -7,6 +7,7 @@
   , "should":"0.6."
   , "express": "2.5.5"
   , "ejs": ">= 0.0.1"
+  , "redis": "0.7.1"
   }
   , "dependencies": {
     "serializer" : "0.0.3"

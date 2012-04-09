@@ -8,7 +8,11 @@ suite('OAUTH2 Server Store', function() {
     util.inherits(TestStore, store.BaseStore);
     assert.throws(function() {
       var s = new TestStore();
-      s.getClient(1, function() {});
+      s.get(1, function() {});
+    });
+    assert.throws(function() {
+      var s = new TestStore();
+      s.set(1,{}, function() {});
     });
     t();
   });
