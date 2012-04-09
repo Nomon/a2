@@ -22,4 +22,14 @@ suite('OAUTH2 Server Store', function() {
       });
     });
   });
+  test('redis storage can be queried', function(t) {
+    var s = new store.RedisStore();
+    var tv = {test:"value"};
+    s.set('client:1', tv , function(err, res) {
+      s.get('client:1', function(err, res) {
+        assert.deepEqual(res, tv);
+        t();
+      });
+    });
+  });
 });
