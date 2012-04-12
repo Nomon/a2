@@ -26,6 +26,16 @@ suite('OAUTH2 Server Store', function() {
       });
     });
   });
+  test('local storage can be namespaced', function() {
+    var s1 = new store.LocalStore();
+    var s2 = s1.namespace("kissa");
+    var s3 = new store.LocalStore({namespace:"kissa"});
+    s1.set("test",{"test":"object"});
+    assert.equal(s2.get("test"), undefined);
+    s2.set("test2",{"test":"object"});
+    assert.deepEqual(s3.get("test2"),{"test":"object"});
+    assert.equal(s1.get("test2"), null);
+  });
   test('redis storage can be queried', function(t) {
     var s = new store.RedisStore();
     var tv = {test:"value"};
@@ -35,5 +45,26 @@ suite('OAUTH2 Server Store', function() {
         t();
       });
     });
+  });
+  test('redis storage can be namespaced', function(t) {
+    var s1 = new store.RedisStore();
+    var s2 = s1.namespace("kissa");
+    var s3 = new store.RedisStore({namespace:"kissa"});
+    s1.set("test",{"test":"object"}, function(err, res) {
+      assert.equal(err, null);
+      s2.set("test2",{"test":"object"}, function(err, res) {
+        assert.equal(err, null);
+        s3.get("test2", function(err, res) {
+          assert.deepEqual(res,{"test":"object"});
+          s1.get("test2", function(err, res) {
+            assert.deepEqual(res, {});
+            t();
+          });
+        })
+      });
+    });
+
+
+
   });
 });
