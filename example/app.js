@@ -23,7 +23,12 @@ authentication.loginForm(function(req, res) {
   res.render('login',{layout:false});
 });
 
-
+/**
+ * We need to give the authorization service the function to render our authorize form. We also need to handle it our self.
+ */
+authentication.authorizeForm(function(req, res, scopes) {
+  res.render('login',{layout:false, scopes:scopes});
+});
 
 // Configuration
 
