@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body class="login">
+<div id="fb-root"></div>
+<div class="modal login-modal">
+  <div class="modal-body">
+    <div class="row">
+      <div class="span4">
+        <form class="form" action="/login" method="POST">
+          <fieldset>
+            <p class="help-block">Login</p>
+            <p></p>
+            <div class="control-group">
+              <div class="controls">
+                <input type="text" name="username" placeholder="Email" class="input">
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <input type="password" name="password" placeholder="Password" class="input">
+              </div>
+            </div>
+            <input type="hidden" name="_csrf" value="<%= token %>">
+            <input type="submit" class="btn btn-large btn-success pull-right" value="Login"></button>
+          </fieldset>
+        </form>
+      </div>
+      <div class="span3">
+        <p class="help-block">...or login with Facebook (recommended)</p>
+        <p></p>
+        <div class="fb-login-button">Login with Facebook</div>
+        <a class="btn btn-large btn-facebook" href="/auth/facebook"><strong>Login with Facebook</strong></a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
