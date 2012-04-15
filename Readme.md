@@ -2,7 +2,7 @@
 
 draft-25 confirming oauth2 server suite with browser js client for implicit flow in browsers.
 
-# Server usage
+# Server usage, for more detailed example see example directory.
 ```
 var server new a2.Server({sign_secret:"token signing secret",crypt_secret:"encryption key used"});
 var authentication = new oauth2.Authentication(server);
@@ -12,7 +12,7 @@ server.on('login_form', function(req, res) {
   res.render('login');
 });
 
-server.on('authorize_form', function() {
+server.on('authorize_form', function(req, res) {
   res.render('authorize',{state:req.a2.state,scope:req.a2.scope,redirect_uri:req.a2.redirect_uri});
 });
 ```
@@ -27,6 +27,10 @@ server.on('authorize_form', function() {
   });
 </script>
 ```
+
+# Example
+The example directory contains on example with facebook login, user/password login and using the identity
+to access api and sharing the identity outside with oauth2.
 
 ## License
 
