@@ -10,12 +10,15 @@ var express = require('express')
 var app = module.exports = express.createServer();
 
 var redisstore = new oauth2.store.RedisStore();
+/**
+ * the oauth2 server,
+ */
 var server = oauth2.createServer({sign_secret:"kissa",crypt_secret:"koira"});
 
-
-
+/**
+ * authentication server
+ */
 var authentication = new oauth2.Authentication(server,{store: redisstore});
-
 /**
  * We need to give the authentication service the function to render our login form. We also need to handle it our self.
  */
@@ -23,11 +26,12 @@ authentication.loginForm(function(req, res) {
   res.render('login',{layout:false});
 });
 
+var authorization = new oauth2.Authorization(server,{scopes:['','user','game']});
 /**
  * We need to give the authorization service the function to render our authorize form. We also need to handle it our self.
  */
-authentication.authorizeForm(function(req, res, scopes) {
-  res.render('login',{layout:false, scopes:scopes});
+authorization.authorizeForm(function(req, res, scopes) {
+  res.render('authorize',{layout:false, scopes:scopes});
 });
 
 // Configuration

@@ -8,12 +8,13 @@ var server new a2.Server({sign_secret:"token signing secret",crypt_secret:"encry
 var authentication = new oauth2.Authentication(server);
 var authorization = new oauth2.Authentication(server);
 
-server.on('login_form', function(req, res) {
+authentication.loginForm(function(req, res) {
   res.render('login');
 });
 
-server.on('authorize_form', function(req, res) {
-  res.render('authorize',{state:req.a2.state,scope:req.a2.scope,redirect_uri:req.a2.redirect_uri});
+
+authorixation.authorizeForm(function(req, res, scopes) {
+  res.render('authorize');
 });
 ```
 
