@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Authorize Application</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<meta name="author" content="">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('#allow').click(function() {
+                $('#authorize').val('1');
+                $('#authform').submit();
+            });
+            $('#deny').click(function() {
+                $('#authorize').val('0');
+                $('#authform').submit();
+            });
+        });
+    </script>
+
+    <body class="login">
+    <div class="login-logo"></div>
+
+    <div class="modal login-modal">
+
+        <div class="modal-header">
+            <img class="authorize-icon" src="/img/icon-lock.png" />
+            <h3 class="green-text">Authorization</h3>
+        </div>
+
+        <div class="modal-body">
+
+            <h4>Authorize <%= a2.client.name %>?</h4>
+            <p></p>
+            <p>This app would like to be able to do the following:</p>
+            <ul>
+
+                <% for(var i in a2.scopes) { %>
+                <li><%= a2.scopes[i] %></li>
+                <% } %>
+            </ul>
+        </div>
+
+        <div class="modal-footer">
+            <p class="logged-in-as">Logged in as <%= username %></p>
+            <button id="deny" href="#" class="btn btn-large btn"><strong>Deny</strong></button>
+            <button id="allow" href="#" class="btn btn-large btn-success"><strong>Allow</strong></button>
+        </div>
+        <form id="authform" method="POST" action="/oauth2/authorize">
+            <input type="hidden" name="state" value="{{= state }}">
+            <input type="hidden" name="authorize" id="authorize" value="0">
+            <input type="hidden" name="client_id" value="{{= client_id }}">
+            <input type="hidden" name="scope" value="{{= scope }}">
+            <input type="hidden" name="redirect_uri" value="{{= redirect_uri }}">
+            <input type="hidden" name="response_type" value="{{= response_type }}">
+            <input type="hidden" name="_csrf" value="{{= token }}">
+        </form>
+    </div>
+
+    </div>
+
+</body>
+</html>
