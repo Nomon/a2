@@ -1,5 +1,5 @@
 {
-    "name": "oauth2-server"
+    "name": "a2"
   , "version": "0.0.1"
   , "licenses": [
      {
@@ -22,6 +22,7 @@
   , "dependencies": {
     "serializer" : "0.0.3"
   , "express": "2.5.5"
+  , "pwd": "*"
   }
   , "keywords": [ "authentication", "authorization", "oauth2", "oauth" ]
   , "scripts": { "test": "make test"}

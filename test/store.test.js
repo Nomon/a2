@@ -16,6 +16,7 @@ suite('OAUTH2 Server Store', function() {
     });
     t();
   });
+
   test('local storage can be queried', function(t) {
     var s = new store.LocalStore();
     var tv = {test:"value"};
@@ -63,8 +64,5 @@ suite('OAUTH2 Server Store', function() {
         })
       });
     });
-
-
-
   });
 });

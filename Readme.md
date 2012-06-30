@@ -1,10 +1,15 @@
 ## a2 OAuth2 suite
 
-draft-25 confirming oauth2 server suite with browser js client for implicit flow in browsers.
+Complete draft-25 confirming oauth2 suite, easily extensible, configurable, secure & scalable.
 
 # Server usage, for more detailed example see example directory.
 ```
 var server new a2.Server({sign_secret:"token signing secret",crypt_secret:"encryption key used"});
+```
+# Server events
+
+
+```
 var authentication = new oauth2.Authentication(server);
 var authorization = new oauth2.Authentication(server);
 
@@ -13,7 +18,7 @@ authentication.loginForm(function(req, res) {
 });
 
 
-authorixation.authorizeForm(function(req, res, scopes) {
+authorization.authorizeForm(function(req, res, scopes) {
   res.render('authorize');
 });
 ```
