@@ -15,9 +15,11 @@
   ]
   , "devDependencies": {
     "mocha":"1.0.1"
+  , "chai":"*"
   , "should":"0.6."
   , "ejs": ">= 0.0.1"
   , "redis": "0.7.1"
+  , "emcee": "*"
   }
   , "dependencies": {
     "serializer" : "0.0.3"

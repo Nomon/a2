@@ -1,6 +1,6 @@
 suite('OAuth2 error responses (draft-25)', function() {
   test('invalid_request', function() {
-	console.log("lol");
+
   });
   test('unauthorized_client', function() {
 

@@ -1,7 +1,5 @@
 
-global.assert = require('assert');
-
-
+global.assert = require('chai').assert;
 
 /**
  * The only thing we needs to mock for a2.connect browser library is html5 local storage
