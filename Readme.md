@@ -1,6 +1,10 @@
+# WIP
+
+This is work in progress and not fully functional yet.
+
 ## a2 OAuth2 suite
 
-Complete draft-25 confirming oauth2 suite, easily extensible, configurable, secure & scalable.
+Complete draft-25 confirming oauth2 suite, fully tested, easily extensible, configurable, secure & scalable.
 
 # Server usage, for more detailed example see example directory.
 ```

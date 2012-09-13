@@ -16,7 +16,7 @@ var redisstore = new oauth2.store.RedisStore();
 
 var userStore = new oauth2.store.LocalStore({namespace:"user"});
 userStore.set('example',{id:1,password: "example",username:"example"});
-var clientStore = new oauth2.store.LocalStore({namespace:"client"});
+var clientStore = new oauth2.store.LocalStore({namespace:"clients"});
 clientStore.set('1',{client_id:1,redirect_uri:['http://127.0.0.1/callback'],name: "example client"});
 
 /**
