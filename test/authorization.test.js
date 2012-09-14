@@ -1,3 +1,3 @@
-suite('OAuth2 Authorization', function() {
+suite('a2 Authorization', function() {
 
 });

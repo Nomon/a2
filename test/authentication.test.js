@@ -1,4 +1,4 @@
-suite('OAuth2 Authentication', function() {
+suite('a2 Authentication', function() {
   var auth, server;
   setup(function() {
     server = new oauth2.Server();

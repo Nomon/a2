@@ -1,6 +1,6 @@
 var util = require('util');
 
-suite('OAUTH2 Server Store', function() {
+suite('a2 Server Store', function() {
   test('creating a store without implementing all methods throws on use', function(t) {
     function TestStore() {
 

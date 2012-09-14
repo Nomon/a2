@@ -1,4 +1,4 @@
-suite('OAuth2 error responses (draft-25)', function() {
+suite('a2 oauth2 error responses (draft-25)', function() {
   test('invalid_request', function() {
 
   });
