@@ -23,7 +23,7 @@ authentication.loginForm(function(req, res) {
 
 
 authorization.authorizeForm(function(req, res, scopes) {
-  res.render('authorize');
+  res.render('authorize',{scopes:scopes});
 });
 ```
 
