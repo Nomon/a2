@@ -23,7 +23,7 @@ authentication.loginForm(function(req, res) {
 
 
 authorization.authorizeForm(function(req, res, scopes) {
-  res.render('authorize',{scopes:scopes});
+  res.render('authorize');
 });
 ```
 
@@ -37,6 +37,38 @@ authorization.authorizeForm(function(req, res, scopes) {
   });
 </script>
 ```
+
+# req.a2
+```
+req.a2 = {
+  user: {
+    id: ''
+  },
+  client: {
+    id: ''
+  },
+  token: {
+      client_id: ''
+    , user_id: ''
+    , expires: ''
+    , extra: {}
+  },
+  server: a2.Server
+}
+```
+
+# Middlewares
+
+a2 provides several different middlewares to be used with express.
+
+a2.secure(options):
+Secures a route (see code for options).
+
+a2.router:
+An express.js router with the configured authorization and/or token endpoint.
+
+a2.static:
+Static middleware configured for lib/browser for implicit web flow.
 
 # Example
 The example directory contains on example with facebook login, user/password login and using the identity
