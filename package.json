@@ -1,31 +1,45 @@
 {
-    "name": "a2"
-  , "version": "0.0.1"
-  , "licenses": [
-     {
-         "type": "MIT",
-         "url": "https://github.com/Nomon/oauth2/blob/master/LICENSE"
-     }
-  ]
-  ,"repositories": [
+  "name": "a2",
+  "version": "0.0.1",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/Nomon/oauth2/blob/master/LICENSE"
+    }
+  ],
+  "repositories": [
     {
       "type": "git",
       "url": "https://github.com/Nomon/oauth2.git"
     }
-  ]
-  , "devDependencies": {
-    "mocha":"1.0.1"
-  , "chai":"*"
-  , "should":"0.6."
-  , "ejs": ">= 0.0.1"
-  , "redis": "0.7.1"
-  , "emcee": "*"
-  }
-  , "dependencies": {
-    "serializer" : "0.0.3"
-  , "express": "2.5.5"
-  , "pwd": "*"
-  }
-  , "keywords": [ "authentication", "authorization", "oauth2", "oauth" ]
-  , "scripts": { "test": "make test"}
+  ],
+  "devDependencies": {
+    "mocha": "1.0.1",
+    "chai": "*",
+    "should": "0.6.",
+    "ejs": ">= 0.0.1",
+    "redis": "0.7.1",
+    "emcee": "*"
+  },
+  "dependencies": {
+    "serializer": "0.0.3",
+    "express": "2.5.5",
+    "pwd": "*"
+  },
+  "keywords": [
+    "authentication",
+    "authorization",
+    "oauth2",
+    "oauth"
+  ],
+  "scripts": {
+    "test": "make test"
+  },
+  "readme": "# WIP\n\nThis is work in progress and not fully functional yet.\n\n## a2 OAuth2 suite\n\nComplete draft-25 confirming oauth2 suite, fully tested, easily extensible, configurable, secure & scalable.\n\n# Server usage, for more detailed example see example directory.\n```\nvar server new a2.Server({sign_secret:\"token signing secret\",crypt_secret:\"encryption key used\"});\n```\n# Server events\n\n\n```\nvar authentication = new oauth2.Authentication(server);\nvar authorization = new oauth2.Authentication(server);\n\nauthentication.loginForm(function(req, res) {\n  res.render('login');\n});\n\n\nauthorization.authorizeForm(function(req, res, scopes) {\n  res.render('authorize');\n});\n```\n\n# Client usage\n```\n<script src=\"/a2/a2.connect.js\"></script>\n<script>\n  var client = a2.initialize({client_id:1,scope:\"user\"});\n  client.connect(function(token) {\n    console.log(\"Got access_token \",token);\n  });\n</script>\n```\n\n# Example\nThe example directory contains on example with facebook login, user/password login and using the identity\nto access api and sharing the identity outside with oauth2.\n\n## License\n\n(The MIT License)\n\nCopyright (c) 2012 Matti Savolainen &lt;matti@applifier.com&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n'Software'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+  "_id": "a2@0.0.1",
+  "description": "This is work in progress and not fully functional yet.",
+  "dist": {
+    "shasum": "4727541726a68d4b8a8fbcefca96b4ce945ec672"
+  },
+  "_from": "a2@git+ssh://git@github.com:Nomon/a2.git"
 }
