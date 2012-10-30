@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "serializer": "0.0.3",
-    "express": "2.5.10",
+    "express": "3.0",
     "pwd": "*"
   },
   "keywords": [
