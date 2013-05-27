@@ -8,7 +8,7 @@ a2 aims to be express.js compatible oauth2 draft-30 confirming authentication su
 
 # Setting up the a2 server.
 
-```js
+```javascript
 var server = new a2.createServer({sign_secret:"token signing secret",
                                   crypt_secret:"encryption key used"});
 
@@ -20,7 +20,6 @@ Server options:
     sign_secret: The token signing secret
     crypt_secret: The token encryption key
     login_endpoint: Set and enable login endpoint redirection
-```
 
 ## Using the Authentication / Authorization server and endpoints.
 
@@ -28,7 +27,7 @@ Setting up the authorize endpoint with browser client and redis storage for user
 
 express 3.0.0+
 
-```js
+```javascript
 var store = new a2.store.RedisStore();
 
 var userStore = store.namespace("users");
@@ -73,7 +72,7 @@ Array of required scopes in the authorization to access the resource.
 
 if both the require_token and require_client are set the provided client_id is verified against the issued token.
 
-```js
+```javascript
 var basic = new a2.middleware({ require_token:true
                               , require_client: true
                               , require_authorization: true
@@ -95,9 +94,9 @@ app.get('/profile/:id', public, function(req, res, next) {
        return res.send(profile);
     });
 });
-``
-
 ```
+
+```javascript
 
 var authentication = new oauth2.Authentication(server);
 var authorization = new oauth2.Authentication(server);
@@ -113,7 +112,8 @@ authorization.authorizeForm(function(req, res, scopes) {
 ```
 
 # Client usage
-```
+
+```javascript
 <script src="/a2/a2.connect.js"></script>
 <script>
   var client = a2.initialize({client_id:1,scope:"user"});
@@ -124,7 +124,8 @@ authorization.authorizeForm(function(req, res, scopes) {
 ```
 
 # req.a2
-```
+
+```javascript
 req.a2 = {
   user: {
     id: ''
